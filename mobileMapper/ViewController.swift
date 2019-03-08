@@ -30,5 +30,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         currentLocation = locations[0]
         print(currentLocation)
     }
+    @IBAction func barZoomButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func barSearchButtonPressed(_ sender: Any) {
+        
+    }
+    
 }
 
