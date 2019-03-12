@@ -34,12 +34,12 @@
                     <navigationItem key="navigationItem" id="LwA-Ed-QMl">
                         <barButtonItem key="leftBarButtonItem" title="Zoom" id="QsK-er-WaU">
                             <connections>
-                                <action selector="barZoomButtonPressed:" destination="BYZ-38-t0r" id="edC-E0-20T"/>
+                                <action selector="barZoomButtonPressed:" destination="BYZ-38-t0r" id="fZZ-0u-Bdy"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="3S8-Za-xKW">
                             <connections>
-                                <action selector="barSearchButtonPressed:" destination="BYZ-38-t0r" id="QJI-pa-Vej"/>
+                                <action selector="barSearchButtonPressed:" destination="BYZ-38-t0r" id="Dj7-aB-9yu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
