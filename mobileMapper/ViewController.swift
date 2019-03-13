@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SafariServices
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -40,6 +41,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mapView.setRegion(region, animated: true)
     }
     
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("here")
+        var currentMapItem = MKMapItem()
+        if let title = view.annotation?.title, let parkName = title {
+            for mapItem in parks {
+                if mapItem.name == parkName {
+                    currentMapItem = mapItem
+                }
+            }
+        }
+        let placeMark = currentMapItem.placemark
+        print(placeMark)
+        if let url = currentMapItem.url {
+            let safariVC = SFSafariViewController(url: url)
+            present(safariVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func barSearchButtonPressed(_ sender: Any) {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "Parks"
@@ -68,6 +88,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let pin = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         pin.image = UIImage(named: "ou")
         pin.canShowCallout = true
+        let button = UIButton(type: .detailDisclosure)
+        pin.rightCalloutAccessoryView = button
         return pin
     }
     
